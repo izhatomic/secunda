@@ -1,0 +1,111 @@
+### ORG BY ID
+POST localhost:8000/organization/search/id
+Content-Type: application/json
+Authorization: ABC123
+
+{
+    "organization_id": 1
+}
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+
+### ORG BY NAME
+POST localhost:8000/organization/search/name
+Content-Type: application/json
+Authorization: ABC123
+
+{
+    "organization_name": "АО \"Автозапчасти+\""
+}
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+
+### BUILDING LIST ALL
+GET localhost:8000/building/list/all
+Content-Type: application/json
+Authorization: ABC123
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+
+### BUILDING SEARCH ORGANIZATION
+POST localhost:8000/building/search/organization
+Content-Type: application/json
+Authorization: ABC123
+
+{
+    "building_id": 2
+}
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+
+### ACTIVITY SEARCH ORGANIZATION
+POST localhost:8000/activity/search/organization
+Content-Type: application/json
+Authorization: ABC123
+
+{
+    "activity": "Еда"
+}
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+
+### ORG SEARCH COORDINATE RADIUS
+POST localhost:8000/organization/search/coordinate/radius
+Content-Type: application/json
+Authorization: ABC123
+
+{
+    "latitude": 55.751244,
+    "longitude": 37.618423,
+    "radius": 1.001
+}
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+
+### ORG SEARCH COORDINATE RECTANGLE
+POST localhost:8000/organization/search/coordinate/rectangle
+Content-Type: application/json
+Authorization: ABC123
+
+{
+    "latitude": 55.751244,
+    "longitude": 37.618423,
+    "latitude_offset": 0.001,
+    "longitude_offset": 2.1
+}
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}

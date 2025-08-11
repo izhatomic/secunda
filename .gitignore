@@ -1,0 +1,8 @@
+.venv
+.venv/
+.idea
+.idea/
+.library/
+.library
+.env
+http-client.private*
